@@ -129,6 +129,8 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 		{
 			model = charsRes->at(7).getString();
 		}
+		
+		duration = charsRes->at(8).getInt32();
 
 		//update last login
 		{
@@ -218,6 +220,7 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 	retVal.push_back(model);
 	//hive interface version
 	retVal.push_back(0.96f);
+	retVal.push_back(duration);
 
 	return retVal;
 }
