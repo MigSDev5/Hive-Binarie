@@ -120,6 +120,7 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 			survivalArr[0] = charsRes->at(4).getInt32();
 			survivalArr[1] = charsRes->at(5).getInt32();
 			survivalArr[2] = charsRes->at(6).getInt32();
+			survivalArr[3] = charsRes->at(8).getInt32();
 		}
 		try
 		{
@@ -129,8 +130,6 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 		{
 			model = charsRes->at(7).getString();
 		}
-		
-		duration = charsRes->at(8).getInt32();
 
 		//update last login
 		{
@@ -220,7 +219,6 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 	retVal.push_back(model);
 	//hive interface version
 	retVal.push_back(0.96f);
-	retVal.push_back(duration);
 
 	return retVal;
 }
