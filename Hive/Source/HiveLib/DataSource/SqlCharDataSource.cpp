@@ -77,7 +77,7 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 	Sqf::Value worldSpace = Sqf::Parameters(); //empty worldspace
 	Sqf::Value inventory = lexical_cast<Sqf::Value>("[]"); //empty inventory
 	Sqf::Value backpack = lexical_cast<Sqf::Value>("[]"); //empty backpack
-	Sqf::Value survival = lexical_cast<Sqf::Value>("[0,0,0]"); //0 mins alive, 0 mins since last ate, 0 mins since last drank
+	Sqf::Value survival = lexical_cast<Sqf::Value>("[0,0,0,0]"); //0 mins alive, 0 mins since last ate, 0 mins since last drank, 0 time played
 	string model = ""; //empty models will be defaulted by scripts
 	if (charsRes && charsRes->fetchRow())
 	{
@@ -218,7 +218,7 @@ Sqf::Value SqlCharDataSource::fetchCharacterInitial( string playerId, int server
 	}
 	retVal.push_back(model);
 	//hive interface version
-	retVal.push_back(0.96f);
+	retVal.push_back(0.97f);
 
 	return retVal;
 }
